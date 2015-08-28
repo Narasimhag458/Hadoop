@@ -1,0 +1,4 @@
+grunt> intern = load '/user/contents' USING PigStorage(',') as (id:bytearray, cre_ts:chararray, curren:int, amount:float, hobby:chararray, sport:chararray, name:chararray, street:chararray, city:chararray);
+grunt> grou = group intern by id;
+grunt> fored = foreach grou generate group, intern.name, intern.street, intern.city;
+grunt> dump fored;
