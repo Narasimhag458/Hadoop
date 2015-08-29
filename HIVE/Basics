@@ -1,0 +1,11 @@
+To run the hive code in Mr;
+    set hive.execution.engine=mr;
+    
+To run the hive code in spark;
+      set hive.execution.engine=spark;
+      
+Check the hive related variable;
+     set ;
+     
+Check the variables related to hive, MR and hadoop;
+    set -v;
