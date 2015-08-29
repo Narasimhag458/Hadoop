@@ -9,3 +9,7 @@ Check the hive related variable;
      
 Check the variables related to hive, MR and hadoop;
     set -v;
+
+
+ For update and delete queries use the below command for better results.
+      set hive.optimize.sort.dynamic.partition=false 
