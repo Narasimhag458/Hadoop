@@ -13,3 +13,6 @@ Check the variables related to hive, MR and hadoop;
 
  For update and delete queries use the below command for better results.
       set hive.optimize.sort.dynamic.partition=false 
+
+Needs to be set to true to enable dynamic partition inserts
+       set hive.exec.dynamic.partition = True;
