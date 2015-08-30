@@ -12,3 +12,8 @@ alter table context change id id decimal(18,0);
 
 ***Rename Table
 ALTER TABLE context RENAME TO contrast;
+
+**** Alter Table Comment
+To change the comment of a table you have to change the comment property of the TBLPROPERTIES:
+
+ALTER TABLE Context SET TBLPROPERTIES ('comment' = new_comment);
