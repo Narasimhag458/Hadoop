@@ -1,0 +1,14 @@
+We can change the column structure 
+
+Syntax:
+  *** ADD/REPLACE COLUMNS:
+ALTER TABLE table_name [PARTITION partition_spec]
+  ADD|REPLACE COLUMNS (col_name data_type [COMMENT col_comment], ...)
+  [CASCADE|RESTRICT]
+
+E$xample changing id(integer) column to decimal(18,0) column below
+
+alter table context change id id decimal(18,0);
+
+***Rename Table
+ALTER TABLE context RENAME TO contrast;
