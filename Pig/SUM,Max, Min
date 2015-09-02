@@ -3,6 +3,25 @@
  intern = load '/user/Narasimha/contents' USING PigStorage(',') as (id:bytearray, cre_ts:chararray, curren:int, amount:float, hobby:chararray, sport:chararray, name:chararray, street:chararray, city:chararray);
  grouped_data = group intern by id;
  sum_data = foreach grouped_data generate group as id , SUM(intern.amount) as amoun;
- store sum_data into '/user/Narasimha/Sum.txt' Using PigStorage(',');
+ store sum_data into '/user/Narasimha/Sum' Using PigStorage(',');
  
+Max:
+
+ intern = load '/user/Narasimha/contents' USING PigStorage(',') as (id:bytearray, cre_ts:chararray, curren:int, amount:float, hobby:chararray, sport:chararray, name:chararray, street:chararray, city:chararray);
+ grouped_data = group intern by id;
+ Max_data = foreach grouped_data generate group as id , MAX(intern.amount) as amoun;
+ store Max_data into '/user/Narasimha/Max' Using PigStorage(',');
  
+ MIN:
+ 
+  intern = load '/user/Narasimha/contents' USING PigStorage(',') as (id:bytearray, cre_ts:chararray, curren:int, amount:float, hobby:chararray, sport:chararray, name:chararray, street:chararray, city:chararray);
+ grouped_data = group intern by id;
+ Min_data = foreach grouped_data generate group as id , MIN(intern.amount) as amoun;
+ store Min_data into '/user/Narasimha/MIN' Using PigStorage(',');
+
+ AVG:
+ 
+  intern = load '/user/Narasimha/contents' USING PigStorage(',') as (id:bytearray, cre_ts:chararray, curren:int, amount:float, hobby:chararray, sport:chararray, name:chararray, street:chararray, city:chararray);
+ grouped_data = group intern by id;
+ Avg_data = foreach grouped_data generate group as id , AVG(intern.amount) as amoun;
+ store Avg_data into '/user/Narasimha/AVG' Using PigStorage(',');
