@@ -1,0 +1,8 @@
+ Sum:
+ 
+ intern = load '/user/Narasimha/contents' USING PigStorage(',') as (id:bytearray, cre_ts:chararray, curren:int, amount:float, hobby:chararray, sport:chararray, name:chararray, street:chararray, city:chararray);
+ grouped_data = group intern by id;
+ sum_data = foreach grouped_data generate group as id , SUM(intern.amount) as amoun;
+ store sum_data into '/user/Narasimha/Sum.txt' Using PigStorage(',');
+ 
+ 
