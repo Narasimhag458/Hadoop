@@ -1,0 +1,14 @@
+Group:
+
+myload = load '/user/contents' Using PigStorage(',') ;
+
+forue = foreach myload generate $0 as id, $2 as amount;
+
+describe forue;
+forue: {id: bytearray,amount: bytearray}
+
+grem = group forue by id;
+
+fored = foreach grem generate group as id , COUNT(forue) as recv;
+
+limited = limit fored  10;
