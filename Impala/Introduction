@@ -1,0 +1,49 @@
+Impala:
+
+---->  To start a imapala cli by using below command
+         impala-shell -i localhost --quiet
+		
+
+---> Components:
+  Impala deamon
+  Statestore
+  Catlog service
+  
+  Impala Deamon:
+     we can submit the query on any node and that node serves as coordinator node. Coordinator node gather the partial results from other nodes which constructs the final result of the query.
+
+Statestore:
+  It will check the health information of other deamons present in the cluster.
+  
+  If the statestore is not running or becomes unreachable, the other nodes continue running and distributing work among themselves as usual; the cluster just becomes less robust if other nodes fail while the statestore is offline. When the statestore comes back online, it re-establishes communication with the other nodes and resumes its monitoring function.
+  
+Catlog service:
+  it will sends the metadata information to other nodes. we need to run the statestore and catlog service in the same node.
+
+----> Compute Stats:  
+       we will get the stastics of the table.
+	   In Hive:   ANALYZE TABLE tablename COMPUT STASTICS;
+	       Stastics: how many files, record count, total size, raw data size, run time.
+
+---->  guidelines for designing impala:
+           i)  Prefer binary file formats over text-based formats.
+To save space and improve memory usage and query performance, use binary file formats for any large or intensively queried tables. Parquet file format is the most efficient for data warehouse-style analytic queries. Avro is the other binary file format that Impala supports, that you might already have as part of a Hadoop ETL pipeline.		   
+	 
+---> version
+      select version();
+
+---->>  impala keywords:
+       alter     create    describe  exit      help      insert    profile   select    shell     summary   use       version   
+connect   desc      drop      explain   history   load      quit      set       show      unset     values    with    
+
+---> Check the current database;
+       select current_database();
+
+--->  Check the tables in any database;
+        ex: show table in databasename like '*buck*';  --->> it will show the tables contains buck present in the databasename database.
+		    show table like '*buck*';  ---> it will show tables which contains buck keyword in tablenames.
+			
+---> to create a backup table 
+       ex:  create table tablename as select * from table1;
+	   
+	   
