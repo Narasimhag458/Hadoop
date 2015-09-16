@@ -1,0 +1,6 @@
+
+---> ANALYZE TABLE tablename COMPUTE STASTICS:
+         It will give the stastical records of that particular table which contains no. of files, cpu time, record count, file size and raw file size etc.,,
+         
+----> ANALYZE TABLE Table1 PARTITION(ds, hr) COMPUTE STATISTICS;
+then statistics are gathered for all ds and hr partitions.         
